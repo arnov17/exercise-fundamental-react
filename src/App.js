@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import InputName from './component/userInput'
+import UserOutput from './component/userOutput'
+import Sumbit from './component/user-submit'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  // memanggil method constructor
+  constructor(props) {
+    super(props)
+
+    // membuat state
+    this.state = {
+      user : '',
+      isInformation : false
+    }
+  }
+
+  changePerson = (event) => {
+    this.setState({
+        user : event.target.value
+    })
+  }
+
+  checkInput = () => {
+    if(this.state.user.length === 0 ) {
+      alert('Input tidak boleh kosong')
+    } else {
+      // alert('Input Berhasil')
+      this.setState({
+        isInformation : true
+      })
+    }
+  }
+
+  render() {
+    
+
+    return (
+      <div className="app">
+        <InputName  person={this.state.user} changePerson={this.changePerson} />
+        <Sumbit checkInput={this.checkInput}/>
+        <UserOutput isInformation ={this.state.isInformation} display={this.state.user}/>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
