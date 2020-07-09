@@ -1,11 +1,11 @@
 import React from 'react'
 
-const InputName = ({ person, changeName }) => {
-  console.log(person)
+const InputName = ({ user, changeName }) => {
+  console.log(user)
   return (
     <>
       <label htmlFor="name">Input Name:</label>
-      <input type="text" name="name" value={person} onChange={changeName} />
+      <input type="text" name="name" value={user} onChange={(event) => changeName(event.target.value)} />
     </>
   )
 }
