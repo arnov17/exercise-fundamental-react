@@ -16,7 +16,7 @@ class App extends Component {
     }
   }
 
-  changePerson = (event) => {
+  changeName = (event) => {
     this.setState({
         user : event.target.value
     })
@@ -38,7 +38,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <InputName  person={this.state.user} changePerson={this.changePerson} />
+        <InputName  person={this.state.user} changeName={this.changeName} />
         <Sumbit checkInput={this.checkInput}/>
         <UserOutput isInformation ={this.state.isInformation} display={this.state.user}/>
       </div>
