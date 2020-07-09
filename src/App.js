@@ -8,6 +8,11 @@ import Sumbit from './component/user-submit'
 const App = () => {
   const [user, setUser] = useState('')
   const [isInformation, setisInformation] = useState(false)
+
+  const changeName = (event) => {
+    setUser(event.target.value)
+  }
+
   const checkInput = (event) => {
     if(user.length === 0 ) {
       alert('Input tidak boleh kosong')
@@ -19,7 +24,7 @@ const App = () => {
 
   return (
     <div className="app">
-    <InputName  user={user} changeName={setUser} />
+    <InputName  user={user} changeName={changeName} />
     <Sumbit checkInput={checkInput}/>
     <UserOutput isInformation={isInformation} display={user} />
   </div>
